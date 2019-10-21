@@ -12,11 +12,11 @@ import {
   View,
 } from 'react-native';
 import { styles } from './style';
-import FoodList from "../../components/FoodList/FoodList";
-import {searchFood} from "../../service/FDA/search";
+import FoodList from "../../../components/FoodList/FoodList";
+import {searchFood} from "../../../service/FDA/search";
 import _ from 'lodash';
 
-export default class HomeScreen extends Component {
+export default class FoodSearchScreen extends Component {
 
     state = {
        searchResultList: [],
@@ -35,6 +35,10 @@ export default class HomeScreen extends Component {
 
     handleInputThrottled = _.throttle(this.onChangeText, 500);
 
+    navigateToDetail = () => {
+        this.props.navigation.navigate('Detail')
+    };
+
   render() {
 
       return (
@@ -45,13 +49,10 @@ export default class HomeScreen extends Component {
                   onChangeText={text => this.handleInputThrottled(text)}
               />
               <FoodList
-                  data={this.state.searchResultList}/>
+                  data={this.state.searchResultList}
+                  navigate={this.navigateToDetail}
+              />
             </View>
           </SafeAreaView>);
     }
 }
-
-HomeScreen.navigationOptions = {
-  header: null,
-};
-

@@ -1,13 +1,15 @@
 import React from 'react';
-import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, View, FlatList, TouchableOpacity, Text } from 'react-native';
 import { styles } from './style';
-
-function Item({item}) {
+import _ from 'lodash';
+function Item({ navigateToDetail, item }) {
     return (
-        <View style={styles.item}>
-            <Text style={styles.title}>{item.description}</Text>
-            <Text style={styles.description}>{item.fdcId} {item.additionalDescriptions}</Text>
-        </View>
+        <TouchableOpacity onPress={navigateToDetail}>
+            <View style={styles.item} >
+                <Text style={styles.title}>{item.description}</Text>
+                <Text style={styles.description}>{item.fdcId} {item.additionalDescriptions}</Text>
+            </View>
+        </TouchableOpacity>
     );
 }
 
@@ -18,8 +20,9 @@ export default function FoodList(props) {
                 data={props.data}
                 renderItem={({ item }) => <Item
                     item={item}
+                    navigateToDetail={props.navigateToDetail}
                 />}
-                keyExtractor={item => item.fdcId}
+                keyExtractor={item => _.toString(item.fdcId)}
             />
     );
 }

@@ -2,9 +2,11 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import HomeScreen from '../screens/HomeScreen/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import FoodSearchScreen from '../screens/FoodTab/FoodSearchScreen/FoodSearchScreen';
+import FoodDetailScreen from '../screens/FoodTab/FoodDetailScreen/FoodDetailScreen';
+import MainScreen from '../screens/MainTab/MainScreen/MainScreen';
+import SettingsScreen from '../screens/SettingsTab/SettingsScreen/SettingsScreen';
+
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -13,7 +15,8 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: MainScreen,
+
   },
   config
 );
@@ -25,19 +28,20 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const FoodStack = createStackNavigator(
   {
-    Links: LinksScreen,
+      Food: FoodSearchScreen,
+      Detail: FoodDetailScreen
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+FoodStack.navigationOptions = {
+  tabBarLabel: 'Food',
   tabBarIcon: () => {}
 };
 
-LinksStack.path = '';
+FoodStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -54,9 +58,9 @@ SettingsStack.navigationOptions = {
 SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
-  HomeStack,
-  LinksStack,
-  SettingsStack,
+    HomeStack,
+    FoodStack,
+    SettingsStack,
 });
 
 tabNavigator.path = '';

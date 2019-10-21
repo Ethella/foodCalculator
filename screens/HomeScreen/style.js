@@ -2,10 +2,12 @@ import {Platform, StyleSheet} from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        height: '100%',
         backgroundColor: '#fff',
     },
     foodInput: {
-        height: 20,
+        height: 30,
+        borderColor: 'gray',
+        borderWidth: 1
     }
 });

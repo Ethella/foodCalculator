@@ -1,25 +1,26 @@
 import React from 'react';
 import { SafeAreaView, View, FlatList, StyleSheet, Text } from 'react-native';
 import { styles } from './style';
-import { foodList } from '../../constants/food';
 
-function Item({ title }) {
+function Item({item}) {
     return (
         <View style={styles.item}>
-            <Text style={styles.title}>{title}</Text>
+            <Text style={styles.title}>{item.description}</Text>
+            <Text style={styles.description}>{item.fdcId} {item.additionalDescriptions}</Text>
         </View>
     );
 }
 
-export default function FoodList() {
+export default function FoodList(props) {
     return (
-        <SafeAreaView style={styles.container}>
             <FlatList
-                data={foodList}
-                renderItem={({ item }) => <Item title={item.name} />}
-                keyExtractor={item => item.name}
+                style={styles.container}
+                data={props.data}
+                renderItem={({ item }) => <Item
+                    item={item}
+                />}
+                keyExtractor={item => item.fdcId}
             />
-        </SafeAreaView>
     );
 }
 

@@ -4,15 +4,21 @@ import Constants from "expo-constants";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: Constants.statusBarHeight,
+        height: '100%'
+    },
+    description: {
+        color: '#ccc',
+        fontSize: 12
     },
     item: {
-        backgroundColor: '#f9c2ff',
-        padding: 20,
-        marginVertical: 8,
+        // backgroundColor: '#f9c2ff',
+        marginVertical: 1,
         marginHorizontal: 16,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+        height: 'auto'
     },
     title: {
-        fontSize: 32,
+        fontSize: 16,
     },
 });

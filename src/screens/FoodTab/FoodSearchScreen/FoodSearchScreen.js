@@ -56,3 +56,7 @@ export default class FoodSearchScreen extends Component {
           </SafeAreaView>);
     }
 }
+
+FoodSearchScreen.navigationOptions = {
+    title: 'Food',
+};

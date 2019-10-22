@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Food Calculator",
-    "slug": "food/Calculator",
+    "slug": "food-Calculator",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [

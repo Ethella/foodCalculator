@@ -15,8 +15,7 @@ const config = Platform.select({
 
 const HomeStack = createStackNavigator(
   {
-    Home: MainScreen,
-
+    Home: MainScreen
   },
   config
 );

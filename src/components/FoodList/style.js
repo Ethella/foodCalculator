@@ -3,6 +3,7 @@ import Constants from "expo-constants";
 
 export const styles = StyleSheet.create({
     container: {
+        marginTop: 5,
         flex: 1,
         height: '100%'
     },

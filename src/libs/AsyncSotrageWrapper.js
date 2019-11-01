@@ -8,3 +8,13 @@ export const getItem = async (path) => {
 export const setItem = async (path, object) => {
     return await AsyncStorage.setItem(path, JSON.stringify(object));
 };
+
+export const push = async (path, item) => {
+
+    const result = await getItem(path);
+
+    const array = result || [];
+    array.push(item);
+
+    return await setItem(path, item);
+};

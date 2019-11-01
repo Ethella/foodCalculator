@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 function Item({ navigate, item }) {
     return (
-        <TouchableOpacity onPress={navigate}>
+        <TouchableOpacity onPress={() => navigate(item.fdcId)}>
             <View style={styles.item} >
                 <Text style={styles.title}>{item.description}</Text>
                 <Text style={styles.description}>{item.fdcId} {item.additionalDescriptions}</Text>

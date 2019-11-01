@@ -1,6 +1,5 @@
 import _ from 'lodash';
-const api_key = 'guIXeN6QWLJyERZayC29cBM6lfesjLH2GzaI9t4S';
-const BACKEND_URL = `https://${api_key}@api.nal.usda.gov/`;
+import { BACKEND_URL } from '../constants/key';
 
 export const get = async (endpoint) => {
 
@@ -22,10 +21,10 @@ export const get = async (endpoint) => {
         throw new Error(err);
     });
 
-    if (data.status === 'ok'){
-        return data;
+    if (!_.isEmpty(data.error)){
+        throw new Error(data);
     }
 
-    throw new Error(data);
+    return data;
 
 };

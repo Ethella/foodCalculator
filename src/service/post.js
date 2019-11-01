@@ -1,5 +1,4 @@
-const api_key = 'guIXeN6QWLJyERZayC29cBM6lfesjLH2GzaI9t4S';
-const BACKEND_URL = `https://api.nal.usda.gov/`;
+import { BACKEND_URL } from '../constants/key';
 import _ from 'lodash';
 
 export const post = async (endpoint, body) => {
@@ -9,7 +8,6 @@ export const post = async (endpoint, body) => {
         'Content-Type': 'application/json'
     });
 
-    body.api_key = api_key;
     const myFetchOptions = {
         method: 'POST',
         headers: myHeaders,
@@ -17,7 +15,7 @@ export const post = async (endpoint, body) => {
     };
 
     /* fetch the data then return the data with promise */
-    const Url = `${BACKEND_URL}${endpoint}?api_key=${api_key}` ;
+    const Url = `${BACKEND_URL}${endpoint}` ;
 
     /* Extra data for Rollbar record */
     const data = await fetch(Url, myFetchOptions).then((res) => res.json()).catch((err) => {

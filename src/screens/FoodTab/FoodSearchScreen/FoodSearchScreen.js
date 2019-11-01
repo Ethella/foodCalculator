@@ -35,8 +35,8 @@ export default class FoodSearchScreen extends Component {
 
     handleInputThrottled = _.throttle(this.onChangeText, 500);
 
-    navigateToDetail = () => {
-        this.props.navigation.navigate('Detail');
+    navigateToDetail = (foodId) => {
+        this.props.navigation.navigate('Detail', { foodId });
     };
 
   render() {
